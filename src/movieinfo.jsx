@@ -8,7 +8,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import "./startpg.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
+const apikey = import.meta.env.VITE_API_KEY
 var key = 1
 function MovieInfo(props) {
   var [loadimgini, loadimgfin] = useState(<BeatLoader color="#FFFFFF" />);  //for carousel images
@@ -23,7 +23,7 @@ function MovieInfo(props) {
       var images = ""
       var ratinggraph = ""
 
-    await fetch("https://imdb-api.com/en/API/Title/k_of195apq/" + props.movID)
+    await fetch("https://imdb-api.com/en/API/Title/"+apikey+"/" + props.movID)
     .then((res) => res.json())
     .then((data)=>{
         loadupperfin(
@@ -133,7 +133,7 @@ function MovieInfo(props) {
 
 
     await fetch(
-      "https://imdb-api.com/en/API/Images/k_of195apq/" + props.movID + "/Short"
+      "https://imdb-api.com/en/API/Images/"+apikey+"/" + props.movID + "/Short"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -150,7 +150,7 @@ function MovieInfo(props) {
         })
       
 
-    await fetch("https://imdb-api.com/en/API/Ratings/k_of195apq/" + props.movID)
+    await fetch("https://imdb-api.com/en/API/Ratings/"+apikey+"/" + props.movID)
       .then((res) => res.json())
       .then((data) => {
       ratinggraph = {

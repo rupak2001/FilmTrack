@@ -8,11 +8,11 @@ import MovieInfo from './movieinfo'
 import {Route,Routes,Link,useNavigate} from 'react-router-dom'
 
 
+
 var apilinksearch = null
 var filmID = null
 function App() {
   const navigate = useNavigate()
-
   function apilink(data){
     apilinksearch = data
     navigate('/resultlist')
@@ -38,7 +38,7 @@ function App() {
           <Link to="/search"><button><img src={searchicon} alt="searchicon" className='w-6 h-6' /></button></Link>
         </div>
       </div>
-
+    
       <Routes>
         <Route exact path='/' element = {<Startpg findmovinfo = {findmovinfo}/>}/>
         <Route path='/search' element = {<Finderpg apilink = {apilink}/>}/>

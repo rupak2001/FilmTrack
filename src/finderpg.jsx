@@ -1,9 +1,9 @@
 import React from "react";
 import downarrow from "./icons/down_arrow.svg"
 
-
+const apikey = import.meta.env.VITE_API_KEY
 function Finderpg(props){
-    var apilink = "https://imdb-api.com/API/AdvancedSearch/k_of195apq?"
+    var apilink = "https://imdb-api.com/API/AdvancedSearch/"+apikey+ "?"
     var genres_arr = []
     var groups_arr = []
     var companies_arr = []

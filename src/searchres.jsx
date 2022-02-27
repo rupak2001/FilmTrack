@@ -18,7 +18,7 @@ function Searchres(props) {
         if (data.results.length == 0) {
             search_result = 
             <div className="w-full mt-4 bg-gray-700 flex flex-col justify-center items-center">
-                <p className="text-red-500 mt-4 text-2xl">No results found for your search</p>
+                <p className="text-red-500 mt-4 pr-4 pl-4 text-2xl">No results found for your search</p>
                 <button className="w-24 mt-4 mb-4 rounded-lg h-6 bg-green-400 text-indgo-900" onClick = {()=>{props.returnfunc(1)}}>Return Back</button>
             </div>
         } else {
@@ -55,7 +55,7 @@ function Searchres(props) {
   return (
     <div className="w-screen pt-20 bg-gray-800">
       <hr />
-      <h1 className="pt-4 pb-4 text-center text-5xl text-white bg-gray-700">
+      <h1 className="p-4 text-center text-5xl text-white bg-gray-700">
         The search results will appear below
       </h1>
       <hr />

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+
 import "./startpg.css"
 var contents250 = null
 var key250 = 1;
+const apikey = import.meta.env.VITE_API_KEY
 function Startpg(props){
-   
     var [ini250,up250] = useState()
     useEffect(async()=>{
-        await fetch("https://imdb-api.com/en/API/MostPopularMovies/k_of195apq")
+        await fetch("https://imdb-api.com/en/API/MostPopularMovies/"+apikey)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
