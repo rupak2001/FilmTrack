@@ -4,7 +4,7 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 var keysearch = 1;
 function Searchres(props) {
   var [search_result_ini, search_result_up] = useState(
-    <PropagateLoader color="#3d6cb8" size={20} />
+    <PropagateLoader color="#FFFFFF" size={20} />
   );
 
 

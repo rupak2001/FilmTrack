@@ -4,26 +4,25 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import BeatLoader from "react-spinners/BeatLoader";
 import "./startpg.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 var key = 1
 function MovieInfo(props) {
-  var [loadimgini, loadimgfin] = useState();
-  var [loadcastini, loadcastfin] = useState();
-  var [loadgraphini, loadgraphfin] = useState();
-  var [loadupperini,loadupperfin] = useState();
-  var [loadplotini,loadplotup] = useState();
+  var [loadimgini, loadimgfin] = useState(<BeatLoader color="#FFFFFF" />);  //for carousel images
+  var [loadcastini, loadcastfin] = useState(<BeatLoader color="#FFFFFF"/>);  //for casts
+  var [loadgraphini, loadgraphfin] = useState(<BeatLoader color="#FFFFFF"/>);  //for rating graph
+  var [loadupperini,loadupperfin] = useState(<BeatLoader color="#FFFFFF"/>);  //for loading the about page
+  var [loadplotini,loadplotup] = useState(<BeatLoader color="#FFFFFF"/>);  // for loading plot
 
 
 
   useEffect(async () => {
       var images = ""
-      var actorList = ""
       var ratinggraph = ""
-      var aboutObject = ""
-      var ratingObject = ""
+
     await fetch("https://imdb-api.com/en/API/Title/k_of195apq/" + props.movID)
     .then((res) => res.json())
     .then((data)=>{
@@ -132,8 +131,6 @@ function MovieInfo(props) {
         )
     })
 
-        
-    
 
     await fetch(
       "https://imdb-api.com/en/API/Images/k_of195apq/" + props.movID + "/Short"
@@ -143,7 +140,7 @@ function MovieInfo(props) {
         images = data.items.slice(0, 10).map((datas) => {
             return (
               <div key={++key}>
-                <img key={++key} src={datas.image} />
+                <img key={++key} src={datas.image} style = {{height:"500px"}} />
                 <p key={++key} className="legend">{datas.title}</p>
               </div>
             );
@@ -191,7 +188,7 @@ function MovieInfo(props) {
             borderWidth: 1,
           }]}
 
-        loadgraphfin(<Pie options={{ maintainAspectRatio: false }} width={"500%"} height={"500%"} data={ratinggraph}/>)
+        loadgraphfin(<div className="w-[90%] md:w-[50%]"><Pie options={{ maintainAspectRatio: false }} width={"500%"} height={"500%"} data={ratinggraph}/></div>)
       })
 
   }, []);
@@ -212,7 +209,7 @@ function MovieInfo(props) {
       <h1 className="text-3xl text-white pl-10 mt-4 bg-gray-700">Gallery</h1>
       <div className="w-screen flex justify-center items-center  pb-4 pt-4 bg-gray-800">
         <div className="w-[98%] md:w-[50%] h-full">
-          <Carousel className="bg-gray-800" autoPlay infiniteLoop>
+          <Carousel className="bg-gray-800" autoPlay infiniteLoop dynamicHeight showThumbs={false}>
             {loadimgini}
           </Carousel>
         </div>
@@ -222,7 +219,7 @@ function MovieInfo(props) {
       <h1 className="text-3xl text-white pl-10 mt-4 bg-gray-700">Ratings</h1>
 
       <div className="w-screen flex justify-center items-center mb-4 bg-gray-800">
-        <div className="w-[90%] md:w-[50%]">{loadgraphini}</div>
+        {loadgraphini}
       </div>
 
       <hr className="text-white" />

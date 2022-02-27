@@ -25,17 +25,20 @@ function Startpg(props){
     },[])
     
     return(
-        <div className="w-screen pt-16 bg-gray-800">
+        <div className="w-screen pt-16 md:pt-14 bg-gray-800">
             <hr className="text-white"/>
-            <div className="flex flex-col justify-center items-center mt-16 bg-gray-700">
-                <h1 className="text-white text-6xl font-semibold text-white">
+            <div className="flex flex-col justify-center items-center pt-4 mt-4 bg-gray-700">
+                <h1 className="text-white text-6xl text-center font-semibold text-white">
                     WELCOME TO "FilmTrack"
                 </h1>
                 <br />
                 <br />
-                <p className="text-4xl text-gray-100 font-semibold">Here are top 100 films for you to binge this weekend</p>
-                <p className="text-2xl text-gray-100 font-bold">If you want to search for any film, just search it on the topbar</p>
-                <p className="text-2xl text-gray-100 font-bold">To Explore more about different films just click on see more tab</p>
+                <p className="text-4xl text-gray-100 font-semibold text-center">Here are top 100 films to know about</p>
+                <br />
+                <p className="text-2xl text-gray-100 font-bold text-center">If you want to search for any film/s, click on the search icon above</p>
+                <br />
+                <p className="text-2xl text-gray-100 font-bold text-center">Click on any film to get different informations</p>
+                <br />
             </div>
             <hr className="text-white mt-6"/>
             <h2 className="text-gray-100 text-xl mt-4 ml-4">THE TOP 100 PICKS OF THIS WEEKEND-</h2>
