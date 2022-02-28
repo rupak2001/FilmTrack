@@ -193,6 +193,13 @@ function MovieInfo(props) {
 
   }, []);
 
+  window.addEventListener('beforeunload', function (e) {
+    // Cancel the event
+    e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
+    // Chrome requires returnValue to be set
+    e.returnValue = '';
+  });
+
   return (
     <div className="w-screen bg-gray-800 pt-16" id="movidtop">
       <h1 className="text-3xl text-white pl-10 mb-2 md:mb-0 bg-gray-700">
@@ -230,12 +237,15 @@ function MovieInfo(props) {
       </div>
 
       <hr className="text-white mt-4" />
+      <div className="w-screen flex justify-center items-center">
       <a href="#movidtop">
-        <button className="ml-[48%] w-24 mt-4 h-8 rounded-lg bg-yellow-400 text-black">
+        <button className="w-24 mt-4 h-8 rounded-lg bg-yellow-400 text-black">
           Back To Top
         </button>
+        </a>
+      </div>
+      
         <hr className="text-white mt-4" />
-      </a>
     </div>
   );
 }

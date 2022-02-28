@@ -10,7 +10,6 @@ function Startpg(props){
         await fetch("https://imdb-api.com/en/API/MostPopularMovies/"+apikey)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
             contents250 = data.items.map((datas)=>{
                 return(
                     <div onClick={()=>{props.findmovinfo(datas.id)}} className="w-64 mt-4 hover:scale-105 flex flex-col border-2 bg-gray-900 hover:bg-gray-800 cursor-pointer border-white justify-evenly justify-center items-center" key = {++key250}>

@@ -52,6 +52,12 @@ function Searchres(props) {
     search_result_up(search_result);
   }, []);
 
+
+  window.addEventListener('beforeunload', function (e) {
+    e.preventDefault(); 
+    e.returnValue = '';
+  });
+
   return (
     <div className="w-screen pt-20 bg-gray-800">
       <hr />
