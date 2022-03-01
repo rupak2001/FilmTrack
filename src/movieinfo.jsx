@@ -7,6 +7,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import BeatLoader from "react-spinners/BeatLoader";
 import "./startpg.css";
 
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 const apikey = import.meta.env.VITE_API_KEY
 var key = 1
@@ -14,7 +15,7 @@ function MovieInfo(props) {
   var [loadimgini, loadimgfin] = useState(<BeatLoader color="#FFFFFF" />);  //for carousel images
   var [loadcastini, loadcastfin] = useState(<BeatLoader color="#FFFFFF"/>);  //for casts
   var [loadgraphini, loadgraphfin] = useState(<BeatLoader color="#FFFFFF"/>);  //for rating graph
-  var [loadupperini,loadupperfin] = useState(<BeatLoader color="#FFFFFF"/>);  //for loading the about page
+  var [loadupperini,loadupperfin] = useState(<BeatLoader color="#FFFFFF" className = "ml-1/2"/>);  //for loading the about page
   var [loadplotini,loadplotup] = useState(<BeatLoader color="#FFFFFF"/>);  // for loading plot
 
 
@@ -202,7 +203,7 @@ function MovieInfo(props) {
 
   return (
     <div className="w-screen bg-gray-800 pt-16" id="movidtop">
-      <h1 className="text-3xl text-white pl-10 mb-2 md:mb-0 bg-gray-700">
+      <h1 className="text-3xl text-white pl-10 mb-2  bg-gray-700">
         Description
       </h1>
       {loadupperini}
@@ -214,18 +215,23 @@ function MovieInfo(props) {
       {loadplotini}
       <hr className="text-white" />
       <h1 className="text-3xl text-white pl-10 mt-4 bg-gray-700">Gallery</h1>
-      <div className="w-screen flex justify-center items-center  pb-4 pt-4 bg-gray-800">
+      <div className="w-screen flex flex-col justify-center items-center pt-4 bg-gray-800">
         <div className="w-[98%] md:w-[50%] h-full">
           <Carousel className="bg-gray-800" autoPlay infiniteLoop dynamicHeight showThumbs={false}>
             {loadimgini}
           </Carousel>
         </div>
+        <a href="#graphid" className="ml-1/2 mb-4">
+            <button className="w-10 h-6 animate-bounce  mt-6 mb-4">
+              <img src={downarrow} alt="downarrow" />
+            </button>
+      </a>
       </div>
 
-      <hr className="text-white" />
-      <h1 className="text-3xl text-white pl-10 mt-4 bg-gray-700">Ratings</h1>
+      <hr id = "graphid" className="text-white" />
+      <h1  className="text-3xl text-white pl-10 mt-4 bg-gray-700">Ratings</h1>
 
-      <div className="w-screen flex justify-center items-center mb-4 bg-gray-800">
+      <div  className="w-screen flex justify-center items-center mb-4 bg-gray-800">
         {loadgraphini}
       </div>
 

@@ -16,10 +16,6 @@ function Finderpg(props){
     })
 
 
-    function gotofields(){
-        var elmnt = document.getElementById("searchFields");
-        elmnt.scrollIntoView();
-    }
 
     function check_genres(){
         var checks = []
@@ -170,7 +166,7 @@ function Finderpg(props){
             <p className="pt-2 text-2xl w-screen font-semibold pb-2 text-gray-100 text-center bg-gray-700">You may fill one or more fields according to your preference</p>
             <p className="pt-2 text-xl w-screen font-semibold pb-2 text-gray-100 text-center bg-gray-700">For example: If you want to find all hindi movies between 2015-2021: just enter language "hindi" and release year "2015" to "2021"</p>
             <div className="w-full pb-4 pt-4 bg-gray-700 flex flex-row justify-center items-center">
-            <button onClick={gotofields} className="animate-bounce"><img className="h-10 w-10" src={downarrow} alt="downarrow" /></button>
+            <a href="#searchFields"><button className="animate-bounce"><img className="h-10 w-10" src={downarrow} alt="downarrow" /></button></a>
             </div>
             <hr className="text-white w-screen"/>
             </div>

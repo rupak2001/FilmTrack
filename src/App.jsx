@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <div className="h-screen w-screen bg-gray-800 ">
+    <div className="h-screen w-screen bg-gray-800">
       <div className='h-14 w-screen bg-gray-600 fixed z-10 flex flex-row justify-center items-center justify-evenly'>
         <h1 className='text-white font-mono text-2xl'>FilmTrack</h1>
         <div className='flex flex-row justify-end items-center w-36 '>

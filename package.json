@@ -25,6 +25,8 @@
     "vite": "^2.8.0"
   },
   "react-dotenv": {
-    "whitelist": ["api_key"]
+    "whitelist": [
+      "api_key"
+    ]
   }
 }
